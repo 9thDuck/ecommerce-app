@@ -1,4 +1,4 @@
-import Branding from "../branding"
+import Branding from "../../branding"
 import { Navbar } from "../navbar"
 
 const Header = () => {
