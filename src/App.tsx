@@ -1,11 +1,11 @@
-import { Button } from "./components/ui/button"
+import { RouterProvider } from "react-router-dom"
+import { router } from "./router"
 
-function App() {
+const App = () => {
 
-  return (
-    <main className='container mx-auto'>
-    </main>
-  )
+    return (
+        <RouterProvider router={router} />
+    )
 }
 
 export default App
