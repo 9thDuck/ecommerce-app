@@ -5,7 +5,7 @@ import { useThree, Object3DNode, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import countries from "@/data/globe.json";
 import { motion } from "framer-motion";
-import { GLOBE_CONFIG, GLOBE_SAMPLE_ARCS } from "@/constants/HERO_GLOBE.config";
+import { GLOBE_CONFIG, GLOBE_SAMPLE_ARCS } from "@/constants";
 
 declare module "@react-three/fiber" {
   interface ThreeElements {
