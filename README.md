@@ -1,50 +1,76 @@
-# React + TypeScript + Vite
+# MyShop - E-commerce Application only frontend no backend(as of now)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MyShop is a modern e-commerce application built with React, TypeScript, and Vite. It provides a seamless shopping experience with features like product browsing, cart management, and order tracking.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Browse a wide range of products
+- View detailed product information
+- Add products to cart
+- Manage cart items (add, remove, update quantity)
+- Generate discount coupon
+- Apply discount coupon
+- Remove discount coupon
+- Checkout(dummy)
+- View order history
+- Responsive design for mobile and desktop
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React
+- TypeScript
+- Vite
+- Redux Toolkit
+- React Router
+- Shadcn UI
+- Tailwind CSS
+- Framer Motion
+- Three.js (for 3D globe visualization)
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Run the development server:
+   ```
+   npm run dev
+   ```
+4. Open your browser and navigate to `http://localhost:5173`
+
+## Building for Production
+
+To create a production build, run:
+
+```
+npm run build
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Running Tests
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+To run the tests, run:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```
+npm run test
+```
+
+```
+## Project Structure
+
+- `src/components`: Reusable React components
+- `src/pages`: Individual page components
+- `src/store`: Redux store configuration and slices
+- `src/constants`: Constant values and configurations
+- `src/types`: TypeScript type definitions
+- `src/lib`: Utility functions and helpers
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License.
 ```
