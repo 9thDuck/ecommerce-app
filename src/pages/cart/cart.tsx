@@ -18,6 +18,7 @@ import { DISCOUNT_IN_PERCENTAGE, Nth_ORDER_FOR_DISCOUNT } from "@/constants";
 import { useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
+import { addOrder } from "../orders/reducer";
 
 const Cart = () => {
   const { totalAmount, items, availableDiscountCoupon, usedDiscountCoupon } =
@@ -45,6 +46,7 @@ const Cart = () => {
 
   const handleCheckout = () => {
     dispatch(updateProductStock(items));
+    dispatch(addOrder({ items, totalAmount }));
     dispatch(clearCart());
   };
 
