@@ -24,9 +24,8 @@ const createTestStore = () =>
       cart: {
         items: [],
         totalAmount: 0,
-        orderCount: 0,
-        availableDiscountCoupon: "",
-        usedDiscountCoupon: "",
+        availableDiscountCoupon: false,
+        usedDiscountCoupon: false,
       },
       orders: { orders: [] },
     },
