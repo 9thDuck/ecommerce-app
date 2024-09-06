@@ -169,7 +169,7 @@ const CustomSelect = ({
   placeholder?: string;
 }) => {
   return (
-    <Select value={value} onValueChange={onChange}>
+    <Select value={String(value)} onValueChange={onChange}>
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
