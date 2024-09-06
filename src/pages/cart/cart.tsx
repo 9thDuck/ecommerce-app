@@ -8,6 +8,7 @@ import {
   removeDiscount,
   generateDiscountCoupon,
   applyDiscount,
+  cartCheckout,
 } from "./reducer";
 import PageContent from "@/components/page-content";
 import { CartItem } from "@/types";
@@ -65,7 +66,7 @@ const Cart = () => {
   const handleCheckout = () => {
     dispatch(updateProductStock(items));
     dispatch(addOrder({ items, totalAmount }));
-    dispatch(clearCart());
+    dispatch(cartCheckout());
   };
 
   const handleRemoveDiscount = () => {
@@ -75,23 +76,6 @@ const Cart = () => {
   const handleGenerateDiscountCoupon = () => {
     dispatch(generateDiscountCoupon(orders.length));
     setAlreadyCheckedForDiscountCoupon(true);
-  };
-
-  const EmptyCart = () => {
-    return (
-      <div className="text-center py-12">
-        <ShoppingCart className="mx-auto h-24 w-24 text-gray-400 mb-4" />
-        <h2 className="text-2xl font-semibold text-gray-600 mb-2">
-          Your cart is empty
-        </h2>
-        <p className="text-gray-500 mb-6">
-          Looks like you haven't added anything to your cart yet.
-        </p>
-        <Button asChild>
-          <Link to="/products">Start Shopping</Link>
-        </Button>
-      </div>
-    );
   };
 
   const handleApplyDiscount = () => {

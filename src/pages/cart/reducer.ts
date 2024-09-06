@@ -103,6 +103,13 @@ const cartSlice = createSlice({
       state.items = [];
       state.totalAmount = 0;
     },
+    cartCheckout: (state) => {
+      state.items = [];
+      state.totalAmount = 0;
+      if (state.usedDiscountCoupon) {
+        state.usedDiscountCoupon = false;
+      }
+    },
     // action for checkout doesn't exist here. Because checkout is emulated by updating the stock
     // of the products, and simply clearing the cart.
   },
@@ -116,6 +123,7 @@ export const {
   generateDiscountCoupon,
   clearCart,
   removeDiscount,
+  cartCheckout,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
