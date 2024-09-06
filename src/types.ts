@@ -18,3 +18,10 @@ export type CartItem = Pick<
 > & {
   quantity?: number;
 };
+
+export type Order = {
+  id: number;
+  items: CartItem[];
+  totalAmount: number;
+  createdAt: number;
+};
