@@ -8,7 +8,6 @@ import ProductDetails from "./pages/product-details";
 import { Orders } from "./pages/orders";
 import NotFound from "./pages/not-found";
 import ErrorBoundary from "./components/ui/error-boundary";
-import PageContent from "./components/page-content";
 
 export const router = createBrowserRouter([
   {
