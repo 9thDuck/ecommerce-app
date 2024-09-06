@@ -23,6 +23,7 @@ import { addOrder } from "../orders/reducer";
 const Cart = () => {
   const { totalAmount, items, availableDiscountCoupon, usedDiscountCoupon } =
     useAppSelector((state) => state.cart);
+  const { orders } = useAppSelector((state) => state.orders);
   const [alreadyCheckedForDiscountCoupon, setAlreadyCheckedForDiscountCoupon] =
     useState(false);
 
@@ -55,9 +56,7 @@ const Cart = () => {
   };
 
   const handleGenerateDiscountCoupon = () => {
-    // Hardcoded for now, in order to check the discount coupon feature.
-    // Will become dynamic once the orders page is implemented.
-    dispatch(generateDiscountCoupon(1));
+    dispatch(generateDiscountCoupon(orders.length));
     setAlreadyCheckedForDiscountCoupon(true);
   };
 

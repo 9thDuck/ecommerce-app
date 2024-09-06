@@ -5,17 +5,15 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface CartState {
   items: CartItem[];
   totalAmount: number;
-  orderCount: number;
-  availableDiscountCoupon: string;
-  usedDiscountCoupon: string;
+  availableDiscountCoupon: boolean;
+  usedDiscountCoupon: boolean;
 }
 
 const initialState: CartState = {
   items: [],
   totalAmount: 0,
-  orderCount: 0,
-  availableDiscountCoupon: "",
-  usedDiscountCoupon: "",
+  availableDiscountCoupon: false,
+  usedDiscountCoupon: false,
 };
 
 const cartSlice = createSlice({
@@ -77,7 +75,7 @@ const cartSlice = createSlice({
       if (state.availableDiscountCoupon) {
         state.totalAmount *= 1 - 1 / DISCOUNT_IN_PERCENTAGE;
         state.usedDiscountCoupon = state.availableDiscountCoupon;
-        state.availableDiscountCoupon = "";
+        state.availableDiscountCoupon = false;
       }
     },
     // Removes discount from the total amount, if there is a discount coupon used.
@@ -87,8 +85,8 @@ const cartSlice = createSlice({
       }
       state.totalAmount =
         (state.totalAmount / (100 - DISCOUNT_IN_PERCENTAGE)) * 100;
-      state.availableDiscountCoupon = state.usedDiscountCoupon;
-      state.usedDiscountCoupon = "";
+      state.availableDiscountCoupon = true;
+      state.usedDiscountCoupon = false;
     },
     // Generates a discount coupon, if the order the user is placing is Nth_ORDER_FOR_DISCOUNT,
     // and there is no available discount coupon. If a discount coupon is already available,
@@ -96,13 +94,9 @@ const cartSlice = createSlice({
     generateDiscountCoupon: (state, action: PayloadAction<number>) => {
       if (
         (action.payload + 1) % Nth_ORDER_FOR_DISCOUNT === 0 &&
-        state.availableDiscountCoupon === ""
+        !state.availableDiscountCoupon
       ) {
-        const newCoupon = `DISCOUNT${Math.random()
-          .toString(36)
-          .substr(2, 8)
-          .toUpperCase()}`;
-        state.availableDiscountCoupon = newCoupon;
+        state.availableDiscountCoupon = true;
       }
     },
     clearCart: (state) => {
