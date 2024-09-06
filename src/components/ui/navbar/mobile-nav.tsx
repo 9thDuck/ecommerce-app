@@ -11,12 +11,12 @@ interface MobileNavProps {
 const MobileNav: React.FC<MobileNavProps> = ({ cartCount }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <div className="z-20 md:z-0 md:hidden">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="text-white focus:outline-none"
-      >
+      <button onClick={toggleMenu} className="text-white focus:outline-none">
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
       {isOpen && (
@@ -32,13 +32,18 @@ const MobileNav: React.FC<MobileNavProps> = ({ cartCount }) => {
                       icon={ShoppingCart}
                       label={item.name}
                       count={cartCount}
+                      onClick={closeMenu}
                     />
                   </li>
                 );
               } else {
                 return (
                   <li key={item.name} className="text-white">
-                    <Link to={item.path} title={`Go to ${item.name} page`}>
+                    <Link
+                      to={item.path}
+                      title={`Go to ${item.name} page`}
+                      onClick={closeMenu}
+                    >
                       {item.name}
                     </Link>
                   </li>

@@ -9,6 +9,7 @@ interface NavItemWithCountProps {
   label: string;
   count: number;
   title: string;
+  onClick?: () => void;
 }
 
 const NavItemWithCount: React.FC<NavItemWithCountProps> = ({
@@ -17,9 +18,15 @@ const NavItemWithCount: React.FC<NavItemWithCountProps> = ({
   title,
   label,
   count,
+  onClick,
 }) => {
   return (
-    <Link to={to} className="flex items-center text-white gap-2" title={title}>
+    <Link
+      to={to}
+      className="flex items-center text-white gap-2"
+      title={title}
+      onClick={onClick}
+    >
       <div className="relative">
         <Icon className="w-5 h-5" />
         {count > 0 && (
