@@ -6,8 +6,7 @@ import PageContent from "@/components/page-content";
 import { motion } from "framer-motion";
 import { useMemo } from "react";
 import { cn } from "@/lib/utils";
-import { RootState } from "../store"; // Make sure to import RootState
-import React from "react"; // Import React for the Fragment
+import { RootState } from "../store";
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
