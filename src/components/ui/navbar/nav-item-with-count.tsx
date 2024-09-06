@@ -17,18 +17,20 @@ const NavItemWithCount: React.FC<NavItemWithCountProps> = ({
   count,
 }) => {
   return (
-    <Link to={to} className="relative flex items-center text-white">
-      <Icon className="w-5 h-5 mr-1" />
-      <span>{label}</span>
-      {count > 0 && (
-        <span
-          className={cn(
-            "absolute -top-2 -right-2 bg-primary-foreground text-primary text-xs rounded-full w-5 h-5 flex items-center justify-center"
-          )}
-        >
-          {count}
-        </span>
-      )}
+    <Link to={to} className="flex items-center text-white gap-2">
+      <div className="relative">
+        <Icon className="w-5 h-5" />
+        {count > 0 && (
+          <span
+            className={cn(
+              "absolute -top-2 -right-2 bg-primary-foreground text-primary text-xs rounded-full w-4 h-4 flex items-center justify-center"
+            )}
+          >
+            {count}
+          </span>
+        )}
+      </div>
+      <span className="ml-1">{label}</span>
     </Link>
   );
 };
