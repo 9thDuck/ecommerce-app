@@ -752,3 +752,5 @@ export const PRODUCTS = [
     stock: 112,
   },
 ];
+
+export const PRODUCTS_ITEMS_PER_PAGE_OPTIONS = ["10", "25", "50"];
