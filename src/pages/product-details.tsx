@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { Button } from "@/components/ui/button";
 import { addToCart } from "@/pages/cart/reducer";
@@ -7,6 +7,34 @@ import { motion } from "framer-motion";
 import { useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { RootState } from "../store";
+import { AlertCircle, ShoppingBag } from "lucide-react";
+
+const ProductNotFound = () => {
+  return (
+    <PageContent>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="flex flex-col items-center justify-center py-16 px-4 text-center"
+      >
+        <AlertCircle className="w-16 h-16 text-primary mb-4" />
+        <h1 className="text-3xl font-bold text-primary mb-2">
+          Product Not Found
+        </h1>
+        <p className="text-lg text-gray-600 mb-8">
+          We're sorry, but the product you're looking for doesn't seem to exist.
+        </p>
+        <Button asChild>
+          <Link to="/products" className="flex items-center">
+            <ShoppingBag className="mr-2 h-4 w-4" />
+            Browse Our Products
+          </Link>
+        </Button>
+      </motion.div>
+    </PageContent>
+  );
+};
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -16,7 +44,7 @@ const ProductDetails = () => {
   const { items = [] } = useAppSelector((state: RootState) => state.cart);
 
   if (!product) {
-    return <div>Product not found</div>;
+    return <ProductNotFound />;
   }
 
   const handleAddToCart = () => {
