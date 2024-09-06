@@ -56,7 +56,6 @@ To run the tests, run:
 npm run test
 ```
 
-```
 ## Project Structure
 
 - `src/components`: Reusable React components
@@ -73,4 +72,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License.
-```
