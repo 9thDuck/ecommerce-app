@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { RootState } from "../store";
-import { AlertCircle, ShoppingBag } from "lucide-react";
+import { AlertCircle, ShoppingBag, ShoppingCart } from "lucide-react";
 
 const ProductNotFound = () => {
   return (
@@ -65,6 +65,10 @@ const ProductDetails = () => {
     return items.find((item) => item.id === product.id)?.quantity || 0;
   }, [items, product.id]);
 
+  const cartItemsCount = useMemo(() => {
+    return items.reduce((total, item) => total + (item.quantity || 0), 0);
+  }, [items]);
+
   return (
     <PageContent>
       <motion.div
@@ -121,25 +125,39 @@ const ProductDetails = () => {
             </p>
           </div>
           <p data-testid="product-description">{product.description}</p>
-
-          <Button
-            onClick={handleAddToCart}
-            size="lg"
-            className={cn("w-full md:w-auto", {
-              "hover:bg-gray-500 bg-gray-500 cursor-not-allowed":
-                productCountInCart === product.stock,
-            })}
-            title={
-              productCountInCart === product.stock
-                ? "You have reached the stock limit"
-                : ""
-            }
-            data-testid="add-to-cart-button"
-          >
-            {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button
+              onClick={handleAddToCart}
+              size="lg"
+              className={cn("w-full sm:w-auto", {
+                "hover:bg-gray-500 bg-gray-500 cursor-not-allowed":
+                  productCountInCart === product.stock,
+              })}
+              title={
+                productCountInCart === product.stock
+                  ? "You have reached the stock limit"
+                  : ""
+              }
+              data-testid="add-to-cart-button"
+            >
+              {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
+            </Button>
+            {cartItemsCount > 0 && (
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="w-full sm:w-auto"
+              >
+                <Link to="/cart" className="flex items-center justify-center">
+                  <ShoppingCart className="mr-2 h-4 w-4" />
+                  Go to Cart
+                </Link>
+              </Button>
+            )}
+          </div>
           {productCountInCart > 0 ? (
-            <p data-testid="cart-count">
+            <p data-testid="cart-count" className="mt-2">
               You have {productCountInCart} of this product in your cart
             </p>
           ) : null}
