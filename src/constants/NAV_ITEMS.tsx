@@ -16,6 +16,10 @@ export const NAV_ITEMS = [
     path: "/about",
   },
   {
+    name: "Orders",
+    path: "/orders",
+  },
+  {
     name: "Cart",
     path: "/cart",
   },
