@@ -13,3 +13,11 @@ export const getItemsPerPage = (options: string[]) => {
     };
   });
 };
+
+export function formatDate(date: number): string {
+  return new Date(date).toLocaleDateString("en-IN", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
