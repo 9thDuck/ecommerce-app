@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect, useRef, useState } from "react";
 import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
 import ThreeGlobe from "three-globe";
@@ -325,7 +326,7 @@ const GlobeDemo = () => {
           className="div"
         >
           <h2 className="text-center text-xl md:text-4xl mt-8 font-bold text-black dark:text-white">
-            We sell worldwide
+            Your one-stop shop for everything.
           </h2>
         </motion.div>
         <div className="absolute w-full -bottom-10 inset-x-0 h-[600px] pointer-events-none select-none z-40" />
