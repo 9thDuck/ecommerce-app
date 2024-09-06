@@ -6,13 +6,15 @@ import PageContent from "@/components/page-content";
 import { motion } from "framer-motion";
 import { useMemo } from "react";
 import { cn } from "@/lib/utils";
+import { RootState } from "../store"; // Make sure to import RootState
+import React from "react"; // Import React for the Fragment
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const { products } = useAppSelector((state) => state.products);
   const product = products.find((p) => p.id.toString() === id);
-  const { items } = useAppSelector((state) => state.cart);
+  const { items = [] } = useAppSelector((state: RootState) => state.cart);
 
   if (!product) {
     return <div>Product not found</div>;
@@ -49,28 +51,49 @@ const ProductDetails = () => {
             src={product.image}
             alt={product.title}
             className="w-full h-auto object-cover rounded-lg shadow-lg"
+            data-testid="product-image"
           />
         </div>
         <div className="md:w-1/2 space-y-4">
-          <h1 className="text-3xl font-bold text-primary">{product.title}</h1>
-          <p className="text-2xl font-semibold text-primary">
+          <h1
+            className="text-3xl font-bold text-primary"
+            data-testid="product-title"
+          >
+            {product.title}
+          </h1>
+          <p
+            className="text-2xl font-semibold text-primary"
+            data-testid="product-price"
+          >
             ${product.price.toFixed(2)}
           </p>
           <div className="space-y-2">
             <p className="font-semibold">
-              Brand: <span className="font-normal">{product.brand}</span>
+              Brand:{" "}
+              <span className="font-normal" data-testid="product-brand">
+                {product.brand}
+              </span>
             </p>
             <p className="font-semibold">
-              Model: <span className="font-normal">{product.model}</span>
+              Model:{" "}
+              <span className="font-normal" data-testid="product-model">
+                {product.model}
+              </span>
             </p>
             <p className="font-semibold">
-              Color: <span className="font-normal">{product.color}</span>
+              Color:{" "}
+              <span className="font-normal" data-testid="product-color">
+                {product.color}
+              </span>
             </p>
             <p className="font-semibold">
-              Category: <span className="font-normal">{product.category}</span>
+              Category:{" "}
+              <span className="font-normal" data-testid="product-category">
+                {product.category}
+              </span>
             </p>
           </div>
-          <p className="text-muted-foreground">{product.description}</p>
+          <p data-testid="product-description">{product.description}</p>
 
           <Button
             onClick={handleAddToCart}
@@ -84,11 +107,14 @@ const ProductDetails = () => {
                 ? "You have reached the stock limit"
                 : ""
             }
+            data-testid="add-to-cart-button"
           >
             {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
           </Button>
           {productCountInCart > 0 ? (
-            <p>You have {productCountInCart} of this product in your cart</p>
+            <p data-testid="cart-count">
+              You have {productCountInCart} of this product in your cart
+            </p>
           ) : null}
         </div>
       </motion.div>
