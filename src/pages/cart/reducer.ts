@@ -1,7 +1,4 @@
-import {
-  DISCOUNT_IN_PERCENTAGE,
-  Nth_ORDER_FOR_DISCOUNT,
-} from "@/constants/cart";
+import { DISCOUNT_IN_PERCENTAGE, Nth_ORDER_FOR_DISCOUNT } from "@/constants";
 import { CartItem } from "@/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 

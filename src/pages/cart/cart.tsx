@@ -14,10 +14,7 @@ import { CartItem } from "@/types";
 import { Trash } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { updateProductStock } from "../products/reducer";
-import {
-  DISCOUNT_IN_PERCENTAGE,
-  Nth_ORDER_FOR_DISCOUNT,
-} from "@/constants/cart";
+import { DISCOUNT_IN_PERCENTAGE, Nth_ORDER_FOR_DISCOUNT } from "@/constants";
 import { useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
