@@ -12,7 +12,7 @@ export const PRODUCTS = [
     model: "WH-1000XM3",
     color: "silver",
     category: "audio",
-    discount: 11,
+    stock: 5,
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ export const PRODUCTS = [
     color: "white",
     category: "gaming",
     popular: true,
-    discount: 4,
+    stock: 200,
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ export const PRODUCTS = [
     color: "white",
     category: "gaming",
     popular: true,
-    discount: 3,
+    stock: 224,
   },
   {
     id: 4,
@@ -54,12 +54,12 @@ export const PRODUCTS = [
     price: 362,
     description:
       "Industry Leading noise cancellation-two processors control 8 microphones for unprecedented noise cancellation. With Auto NC Optimizer, noise cancelling is automatically optimized based on your wearing conditions and environment.\r\nIndustry-leading call quality with our Precise Voice Pickup Technology uses four beamforming microphones and an AI-based noise reduction algorithm\r\nMagnificent Sound, engineered to perfection with the new Integrated Processor V1\r\nCrystal clear hands-free calling with 4 beamforming microphones, precise voice pickup, and advanced audio signal processing.",
-    brand: "song",
+    brand: "sony",
     model: "WH1000XM5/SMIN",
     color: "white",
     category: "audio",
     popular: true,
-    discount: 11,
+    stock: 114,
   },
   {
     id: 5,
@@ -75,7 +75,7 @@ export const PRODUCTS = [
     color: "sand gold",
     category: "audio",
     popular: true,
-    discount: 19,
+    stock: 76,
   },
   {
     id: 6,
@@ -90,6 +90,7 @@ export const PRODUCTS = [
     model: "Mi Earphones Basic Blue",
     color: "Blue",
     category: "audio",
+    stock: 86,
   },
   {
     id: 7,
@@ -104,6 +105,7 @@ export const PRODUCTS = [
     model: "Rockerz 370",
     color: "Black",
     category: "audio",
+    stock: 425,
   },
   {
     id: 8,
@@ -117,8 +119,7 @@ export const PRODUCTS = [
     model: "Samsung Galaxy S21 FE 5G (Lavender, 8GB, 128GB Storage)",
     color: "Lavender",
     category: "mobile",
-    discount: 9,
-    onSale: true,
+    stock: 366,
   },
   {
     id: 9,
@@ -133,7 +134,7 @@ export const PRODUCTS = [
     model: "Woburn II Bluetooth",
     color: "gray",
     category: "gaming",
-    discount: 3,
+    stock: 90,
   },
   {
     id: 10,
@@ -148,7 +149,7 @@ export const PRODUCTS = [
     model: "Samsung Galaxy S22 5G",
     color: "White",
     category: "mobile",
-    discount: 29,
+    stock: 417,
   },
   {
     id: 11,
@@ -162,8 +163,7 @@ export const PRODUCTS = [
     model: "Samsung Galaxy S22 Ultra 5G",
     color: "Burgundy",
     category: "mobile",
-    discount: 29,
-    onSale: true,
+    stock: 84,
   },
   {
     id: 12,
@@ -178,6 +178,7 @@ export const PRODUCTS = [
     color: "steel blue",
     category: "mobile",
     popular: true,
+    stock: 84,
   },
   {
     id: 13,
@@ -191,7 +192,7 @@ export const PRODUCTS = [
     model: "Samsung Galaxy M14 5G",
     color: "Smoky Teal",
     category: "mobile",
-    discount: 11,
+    stock: 73,
   },
   {
     id: 14,
@@ -205,7 +206,7 @@ export const PRODUCTS = [
     model: "iPhone 14",
     color: "Blue",
     category: "mobile",
-    discount: 9,
+    stock: 60,
   },
   {
     id: 15,
@@ -220,6 +221,7 @@ export const PRODUCTS = [
     color: "Deep Purple",
     category: "mobile",
     popular: true,
+    stock: 280,
   },
   {
     id: 16,
@@ -233,6 +235,7 @@ export const PRODUCTS = [
     model: "iPhone 14 Pro",
     color: "Golden",
     category: "mobile",
+    stock: 33,
   },
   {
     id: 17,
@@ -246,6 +249,7 @@ export const PRODUCTS = [
     model: "iPhone 12 256GB Green",
     color: "Green",
     category: "mobile",
+    stock: 6,
   },
   {
     id: 18,
@@ -260,8 +264,7 @@ export const PRODUCTS = [
     model: "T21",
     color: "Noir Black",
     category: "mobile",
-    discount: 17,
-    onSale: true,
+    stock: 402,
   },
   {
     id: 19,
@@ -277,7 +280,7 @@ export const PRODUCTS = [
     color: "Meteorite Black",
     category: "mobile",
     popular: true,
-    discount: 7,
+    stock: 23,
   },
   {
     id: 20,
@@ -291,7 +294,7 @@ export const PRODUCTS = [
     model: "Samsung Galaxy M13",
     color: "Aqua Green",
     category: "mobile",
-    discount: 9,
+    stock: 3,
   },
   {
     id: 21,
@@ -306,6 +309,7 @@ export const PRODUCTS = [
     model: "Redmi Note 12 5G",
     color: "Matte Black",
     category: "mobile",
+    stock: 329,
   },
   {
     id: 22,
@@ -319,7 +323,7 @@ export const PRODUCTS = [
     model: "HD 400s",
     color: "Black",
     category: "audio",
-    discount: 9,
+    stock: 465,
   },
   {
     id: 23,
@@ -335,8 +339,7 @@ export const PRODUCTS = [
     color: "black",
     category: "gaming",
     popular: true,
-    discount: 3,
-    onSale: true,
+    stock: 6,
   },
   {
     id: 24,
@@ -351,7 +354,7 @@ export const PRODUCTS = [
     model: "Logitech G502",
     color: "black",
     category: "gaming",
-    discount: 3,
+    stock: 205,
   },
   {
     id: 25,
@@ -366,8 +369,7 @@ export const PRODUCTS = [
     color: "Green",
     category: "mobile",
     popular: true,
-    discount: 21,
-    onSale: true,
+    stock: 201,
   },
   {
     id: 26,
@@ -381,7 +383,7 @@ export const PRODUCTS = [
     brand: "CredevZone",
     model: "X12 Red&blue",
     category: "gaming",
-    discount: 9,
+    stock: 252,
   },
   {
     id: 27,
@@ -396,7 +398,7 @@ export const PRODUCTS = [
     model: "ps5",
     category: "gaming",
     popular: true,
-    discount: 11,
+    stock: 35,
   },
   {
     id: 28,
@@ -411,6 +413,7 @@ export const PRODUCTS = [
     model: "AirPods 3rd Generation",
     color: "White",
     category: "audio",
+    stock: 38,
   },
   {
     id: 29,
@@ -425,7 +428,7 @@ export const PRODUCTS = [
     model: "WH-CH520",
     color: "blue",
     category: "audio",
-    discount: 3,
+    stock: 253,
   },
   {
     id: 30,
@@ -440,8 +443,7 @@ export const PRODUCTS = [
     model: "SRS-XB13",
     color: "black",
     category: "audio",
-    onSale: true,
-    discount: 3,
+    stock: 114,
   },
   {
     id: 31,
@@ -457,7 +459,7 @@ export const PRODUCTS = [
     color: "White",
     category: "audio",
     popular: true,
-    discount: 15,
+    stock: 305,
   },
   {
     id: 32,
@@ -472,7 +474,7 @@ export const PRODUCTS = [
     model: "WH-CH520",
     color: "Taupe",
     category: "audio",
-    discount: 3,
+    stock: 452,
   },
   {
     id: 33,
@@ -487,7 +489,7 @@ export const PRODUCTS = [
     model: "Stone 180",
     color: "black",
     category: "audio",
-    discount: 2,
+    stock: 211,
   },
   {
     id: 34,
@@ -503,7 +505,7 @@ export const PRODUCTS = [
     color: "black",
     category: "audio",
     popular: true,
-    discount: 3,
+    stock: 63,
   },
   {
     id: 35,
@@ -518,8 +520,7 @@ export const PRODUCTS = [
     model: "JBLGO2BLU",
     color: "blue",
     category: "audio",
-    discount: 4,
-    onSale: true,
+    stock: 110,
   },
   {
     id: 36,
@@ -535,7 +536,7 @@ export const PRODUCTS = [
     color: "white",
     category: "audio",
     popular: true,
-    discount: 6,
+    stock: 93,
   },
   {
     id: 37,
@@ -550,7 +551,7 @@ export const PRODUCTS = [
     model: "Space Q45",
     color: "Blue",
     category: "audio",
-    discount: 29,
+    stock: 119,
   },
   {
     id: 38,
@@ -566,8 +567,7 @@ export const PRODUCTS = [
     color: "White",
     category: "audio",
     popular: true,
-    discount: 9,
-    onSale: true,
+    stock: 265,
   },
   {
     id: 39,
@@ -582,7 +582,7 @@ export const PRODUCTS = [
     model: "Beosound Balance",
     category: "audio",
     popular: true,
-    discount: 21,
+    stock: 46,
   },
   {
     id: 40,
@@ -598,7 +598,7 @@ export const PRODUCTS = [
     color: "Blue",
     category: "audio",
     popular: true,
-    discount: 9,
+    stock: 168,
   },
   {
     id: 41,
@@ -613,7 +613,7 @@ export const PRODUCTS = [
     model: "SA-SW5",
     color: "black",
     category: "audio",
-    discount: 9,
+    stock: 405,
   },
   {
     id: 42,
@@ -628,7 +628,7 @@ export const PRODUCTS = [
     model: "DENON HOME 350",
     color: "white",
     category: "audio",
-    discount: 9,
+    stock: 442,
   },
   {
     id: 43,
@@ -643,6 +643,7 @@ export const PRODUCTS = [
     model: "JBL",
     color: "Black",
     category: "audio",
+    stock: 116,
   },
   {
     id: 44,
@@ -658,7 +659,7 @@ export const PRODUCTS = [
     color: "black",
     category: "audio",
     popular: true,
-    discount: 9,
+    stock: 315,
   },
   {
     id: 45,
@@ -672,8 +673,7 @@ export const PRODUCTS = [
     model: "New Apple AirPods Max - Pink",
     color: "Pink",
     category: "audio",
-    onSale: true,
-    discount: 9,
+    stock: 391,
   },
   {
     id: 46,
@@ -688,8 +688,7 @@ export const PRODUCTS = [
     model: "L32R8",
     color: "black",
     category: "tv",
-    onSale: true,
-    discount: 7,
+    stock: 90,
   },
   {
     id: 47,
@@ -704,7 +703,7 @@ export const PRODUCTS = [
     model: "UA43CUE60AKLXL",
     color: "black",
     category: "tv",
-    discount: 9,
+    stock: 262,
   },
   {
     id: 48,
@@ -720,7 +719,7 @@ export const PRODUCTS = [
     color: "black",
     category: "tv",
     popular: true,
-    discount: 11,
+    stock: 265,
   },
   {
     id: 49,
@@ -735,7 +734,7 @@ export const PRODUCTS = [
     model: "AR50GR2851VQD",
     color: "black",
     category: "tv",
-    discount: 5,
+    stock: 116,
   },
   {
     id: 50,
@@ -750,6 +749,6 @@ export const PRODUCTS = [
     model: "OLED55BXPTA",
     color: "dark steel silver",
     category: "tv",
-    discount: 9,
+    stock: 112,
   },
 ];
