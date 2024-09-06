@@ -54,6 +54,8 @@ const Cart = () => {
   };
 
   const handleGenerateDiscountCoupon = () => {
+    // Hardcoded for now, in order to check the discount coupon feature.
+    // Will become dynamic once the orders page is implemented.
     dispatch(generateDiscountCoupon(4));
     setAlreadyCheckedForDiscountCoupon(true);
   };
