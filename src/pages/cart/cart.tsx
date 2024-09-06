@@ -107,24 +107,31 @@ const Cart = () => {
                     <Button
                       variant="outline"
                       onClick={() => handleAddToCart(item)}
-                      title="Add item"
-                      className={cn("", {
+                      title={
+                        item.quantity && item.quantity < item.stock
+                          ? "Add one more of this item to cart"
+                          : undefined
+                      }
+                      className={cn("text-lg", {
                         "hover:bg-gray-500 bg-gray-500 cursor-not-allowed":
                           item.quantity === item.stock,
                       })}
+                      disabled={item.quantity === item.stock}
                     >
                       +
                     </Button>
                     <Button
                       variant="outline"
+                      className="text-xl"
                       onClick={() => handleRemoveFromCart(item.id)}
+                      title="Remove one of this item from cart"
                     >
                       -
                     </Button>
                     <Button
                       variant="destructive"
                       onClick={() => handleDeleteItem(item.id)}
-                      title="Delete item"
+                      title="Remove all of this item from cart"
                     >
                       <Trash size={16} />
                     </Button>
@@ -141,6 +148,7 @@ const Cart = () => {
                       <Button
                         onClick={handleApplyDiscount}
                         className="w-full md:w-auto"
+                        title={`Apply ${DISCOUNT_IN_PERCENTAGE}% discount`}
                       >
                         Apply {DISCOUNT_IN_PERCENTAGE}% discount
                       </Button>
@@ -151,6 +159,7 @@ const Cart = () => {
                       <Button
                         onClick={handleRemoveDiscount}
                         className="w-full md:w-auto"
+                        title="Remove applied discount coupon"
                       >
                         Remove discount coupon
                       </Button>
@@ -160,6 +169,7 @@ const Cart = () => {
                       <Button
                         onClick={handleGenerateDiscountCoupon}
                         className="w-full md:w-auto"
+                        title="Generate discount coupon"
                       >
                         Generate discount coupon
                       </Button>
@@ -181,10 +191,15 @@ const Cart = () => {
                     variant="destructive"
                     onClick={handleClearCart}
                     className="w-full md:w-auto"
+                    title="Clear all items from cart"
                   >
                     Clear Cart
                   </Button>
-                  <Button onClick={handleCheckout} className="w-full md:w-auto">
+                  <Button
+                    onClick={handleCheckout}
+                    className="w-full md:w-auto"
+                    title="Checkout"
+                  >
                     Checkout
                   </Button>
                 </div>

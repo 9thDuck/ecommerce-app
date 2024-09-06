@@ -7,7 +7,11 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   return (
-    <Link to={`/products/${product.id}`} data-testid="product-card">
+    <Link
+      to={`/products/${product.id}`}
+      data-testid="product-card"
+      title={`View details for ${product.title}`}
+    >
       <div className="bg-card rounded-lg shadow-md overflow-hidden flex flex-col h-full">
         <img
           src={product.image}

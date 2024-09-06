@@ -63,7 +63,9 @@ const About = () => {
               variant={button.variant as "default" | "outline"}
               className={cn("px-8 py-6 text-lg", index > 0 ? "ml-4" : "")}
             >
-              <Link to={button.path}>{button.text}</Link>
+              <Link to={button.path} title={button.text}>
+                {button.text}
+              </Link>
             </Button>
           ))}
         </div>

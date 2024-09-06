@@ -35,6 +35,7 @@ const Navbar = () => {
               return (
                 <li key={item.name}>
                   <NavItemWithCount
+                    title={`Go to ${item.name} page`}
                     to={item.path}
                     icon={ShoppingCart}
                     label={item.name}
@@ -45,7 +46,9 @@ const Navbar = () => {
             } else {
               return (
                 <li key={item.name} className="text-white">
-                  <Link to={item.path}>{item.name}</Link>
+                  <Link to={item.path} title={`Go to ${item.name} page`}>
+                    {item.name}
+                  </Link>
                 </li>
               );
             }
