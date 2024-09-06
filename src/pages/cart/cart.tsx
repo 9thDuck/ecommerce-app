@@ -20,6 +20,7 @@ import { useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { addOrder } from "../orders/reducer";
+import { CheckCircle } from "lucide-react";
 
 const EmptyCart = () => {
   return (
@@ -38,12 +39,31 @@ const EmptyCart = () => {
   );
 };
 
+const OrderPlacedMessage = () => {
+  return (
+    <div className="text-center py-12 bg-green-50 rounded-lg shadow-sm">
+      <CheckCircle className="mx-auto h-16 w-16 text-green-500 mb-4" />
+      <h2 className="text-2xl font-semibold text-green-700 mb-2">
+        Order Successfully Placed!
+      </h2>
+      <p className="text-green-600 mb-6">
+        Thank you for your purchase. Your order has been received and is being
+        processed.
+      </p>
+      <Button asChild>
+        <Link to="/orders">View Orders</Link>
+      </Button>
+    </div>
+  );
+};
+
 const Cart = () => {
   const { totalAmount, items, availableDiscountCoupon, usedDiscountCoupon } =
     useAppSelector((state) => state.cart);
   const { orders } = useAppSelector((state) => state.orders);
   const [alreadyCheckedForDiscountCoupon, setAlreadyCheckedForDiscountCoupon] =
     useState(false);
+  const [orderJustPlaced, setOrderJustPlaced] = useState(false);
 
   const dispatch = useAppDispatch();
 
@@ -67,6 +87,7 @@ const Cart = () => {
     dispatch(updateProductStock(items));
     dispatch(addOrder({ items, totalAmount }));
     dispatch(cartCheckout());
+    setOrderJustPlaced(true);
   };
 
   const handleRemoveDiscount = () => {
@@ -86,7 +107,9 @@ const Cart = () => {
     <PageContent>
       <div className="container mx-auto p-4">
         <h1 className="text-2xl md:text-3xl font-bold mb-4">Your Cart</h1>
-        {items.length === 0 ? (
+        {orderJustPlaced ? (
+          <OrderPlacedMessage />
+        ) : items.length === 0 ? (
           <EmptyCart />
         ) : (
           <div>
