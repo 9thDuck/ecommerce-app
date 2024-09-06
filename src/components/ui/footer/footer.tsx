@@ -5,10 +5,10 @@ import Branding from "../../branding";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground py-8 md:min-h-[200px]">
+    <footer className="bg-primary text-primary-foreground py-4 md:min-h-[150px]">
       <div className="container mx-auto px-4 flex flex-col">
         <div className="flex flex-col md:flex-row md:justify-between items-center flex-grow">
-          <div className="mb-4 md:mb-0 flex flex-col items-center">
+          <div className="mb-2 md:mb-0 flex flex-col items-center">
             <Branding />
             <p className="text-sm mt-2 mx-auto">
               Your one-stop shop for everything
