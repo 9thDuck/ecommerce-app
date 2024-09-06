@@ -16,7 +16,10 @@ const MobileNav: React.FC<MobileNavProps> = ({ cartCount }) => {
 
   return (
     <div className="z-20 md:z-0 md:hidden">
-      <button onClick={toggleMenu} className="text-white focus:outline-none">
+      <button
+        onClick={toggleMenu}
+        className="text-white focus:outline-none mr-4 "
+      >
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
       {isOpen && (
