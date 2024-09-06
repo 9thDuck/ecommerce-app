@@ -329,8 +329,8 @@ const GlobeDemo = () => {
             Your one-stop shop for everything.
           </h2>
         </motion.div>
-        <div className="absolute w-full -bottom-10 inset-x-0 h-[600px] pointer-events-none select-none z-40" />
-        <div className="absolute w-full h-96 md:h-full z-10">
+        <div className="absolute w-full -bottom-10 inset-x-0 h-[600px] pointer-events-none select-none z-[5]" />
+        <div className="absolute w-full h-96 md:h-full z-[3]">
           <World data={GLOBE_SAMPLE_ARCS} globeConfig={GLOBE_CONFIG} />
         </div>
       </div>

@@ -12,7 +12,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ cartCount }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="md:hidden">
+    <div className="z-20 md:z-0 md:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="text-white focus:outline-none"
