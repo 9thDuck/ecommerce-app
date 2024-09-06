@@ -26,6 +26,5 @@ export const ABOUT_PAGE_CONTENT = {
   ],
   ctaButtons: [
     { text: "Explore Our Products", path: "/products", variant: "default" },
-    { text: "Contact Us", path: "/contact", variant: "outline" },
   ],
 };
