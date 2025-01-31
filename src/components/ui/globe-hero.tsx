@@ -246,23 +246,52 @@ export function WebGLRendererConfig() {
 }
 
 export function World(props: WorldProps) {
-  const { globeConfig } = props;
+  const [webGLSupported, setWebGLSupported] = useState(false);
+
+  useEffect(() => {
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    setWebGLSupported(!!gl);
+  }, []);
+
+  if (!webGLSupported) {
+    return (
+      <div className="flex items-center justify-center h-full">
+        <div className="text-center p-4">
+          <h3 className="text-lg font-semibold mb-2">3D Globe Unavailable</h3>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Your browser doesn't support WebGL, which is required to display the 3D globe. Ensure hardware acceleration is enabled in your browser settings.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   const scene = new Scene();
   scene.fog = new Fog(0xffffff, 400, 2000);
+  
   return (
-    <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
+    <Canvas 
+      scene={scene} 
+      camera={new PerspectiveCamera(50, aspect, 180, 1800)}
+      onCreated={({ gl }) => {
+        // Additional WebGL configuration
+        gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        gl.setClearColor(0x000000, 0);
+      }}
+    >
       <WebGLRendererConfig />
-      <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
+      <ambientLight color={props.globeConfig.ambientLight} intensity={0.6} />
       <directionalLight
-        color={globeConfig.directionalLeftLight}
+        color={props.globeConfig.directionalLeftLight}
         position={new Vector3(-400, 100, 400)}
       />
       <directionalLight
-        color={globeConfig.directionalTopLight}
+        color={props.globeConfig.directionalTopLight}
         position={new Vector3(-200, 500, 200)}
       />
       <pointLight
-        color={globeConfig.pointLight}
+        color={props.globeConfig.pointLight}
         position={new Vector3(-200, 500, 200)}
         intensity={0.8}
       />
